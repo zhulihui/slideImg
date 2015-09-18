@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+	<title>Document</title>
+</head>
+
+<body>
+	    
+	<script type="text/javascript"  src="js/jquery.js"></script>
+    	<script type="text/javascript" src="js/imgPlug.js"></script>
+    	<div class="plug plug-one">
+            <ul class="plugImg">
+                 <li><img src="images/image1.jpg" title=""></li>
+                 <li><img src="images/image2.jpg" title="这是第二张图片哦"></li>
+                 <li><img src="images/image3.jpg" title="这是第三张图片哦"></li>
+                 <li><img src="images/image4.jpg" title="这是第四张图片哦"></li>
+                 <li><img src="images/image4.jpg" title="这是第五张图片哦"></li>
+            </ul>
+            
+      </div>
+      <div class="plug plug-two">
+            <ul class="plugImg">
+                 <li><img src="images/image1.jpg" title=""></li>
+                 <li><img src="images/image2.jpg" title="这是第二张图片哦"></li>
+                 <li><img src="images/image3.jpg" title="这是第三张图片哦"></li>
+                 <li><img src="images/image4.jpg" title="这是第四张图片哦"></li>
+            </ul>
+      </div>
+
+      <div class="plug plug-three">
+            <ul class="plugImg">
+                 <li><img src="images/image1.jpg" title=""></li>
+                 <li><img src="images/image2.jpg" title="这是第二张图片哦"></li>
+                 <li><img src="images/image3.jpg" title="这是第三张图片哦"></li>
+                 <li><img src="images/image4.jpg" title="这是第四张图片哦"></li>
+                 <li><img src="images/image4.jpg" title="这是第五张图片哦"></li>
+                 <li><img src="images/image4.jpg" title="这是第六张图片哦这是第六张图片哦这是第六张图片哦111"></li>
+            </ul>
+      </div>
+    
+      <style type="text/css">
+           *{padding:0; margin:0;}
+           .plug{width:300px; height: 200px; overflow: hidden; position: relative; margin-left: 100px; float: left;}
+           .plug .plugImg{width:100000px; height: 100%; position: absolute; left: 0}
+           .plug .plugImg li{width:300px; height: 100%; float: left; overflow: hidden; position: relative;}
+           .plug .plugImg li .show-describe{height: 30px; position: absolute; bottom: 0;width:100%;}
+           .plug .plugImg li .show-describe span{ width: 100%; height:100%;  background-color: #e1e1e1; opacity: 0.6; display: block; position: absolute;}
+           .plug .plugImg li .show-describe .show-describe-con{ position: absolute; height: 30px; line-height: 30px; padding-left: 5px;}
+         /*  .plug .plugImg li{display:none;}*/
+           .plug .slideBar{height: 20px; position: absolute; bottom:5px; text-align: right; right:10px;} 
+           .plug .slideBar li{ width:20px; height: 20px;  background-color: #fff; float: left; list-style: none; text-align: center; color: #c3c3c3; line-height: 20px; border-radius: 10px; margin-right: 10px;}
+           .plug .slideBar li.cur{ background-color: #ff6600; color:#fff;}
+           .plug .left-bar{ position: absolute; width:50px; height:50px; top: 50%; left: 10px; background-color: #e1e1e1; margin-top: -25px; opacity: 0.5; font-size: 20px; text-align: center; line-height: 50px; color: #333;}
+           .plug .right-bar{position: absolute; width:50px; height:50px; top: 50%; right: 10px; background-color: #e1e1e1; margin-top: -25px;opacity: 0.5; font-size: 20px; text-align: center; line-height: 50px; color:#333;}
+           .plug .pageNum{position:  absolute;  right: 10px;top:10px; color: #666; padding:2px 4px;background-color: #e1e1e1;  opacity: 0.5; }
+           .plug .pageNum .currentNum{ color: #ff6600;font-weight: bold; font-size: 18px; }
+
+      </style>
+
+      <script type="text/javascript">
+            var imgPlug1 = new imgPlug({
+                autoChageDuring:"4000",  //两张图片自动轮播的间隔时间
+                currentIndex: 10,    //默认的选中第几个图片
+                parentClass:"plug-one",  //滚动的幻灯的插件
+                currentBarClass:"cur",  //当前的slideBar加上的class
+                barHasNum:true, //slideBar是否带有数字  false or true
+                autoChange:true, //是否自动轮播    false or true
+                showDescribe:true,//是否显示图片的描述信息   false or true
+                display_next_and_prev:true,   //是否显示左右切换的按钮  false or true
+                display_slide_bar:true,    //是否显示slidebar导航条  fasle or true
+                display_page:true,  //是否显示页码   false  or  true
+                callbackFunction:function(){
+                      console.log("此处可以填写实例化1的回调函数")
+                }  
+            });
+            
+             var imgPlug2 = new imgPlug({
+                 autoChageDuring:"6000",  //两张图片自动轮播的间隔时间
+                 currentIndex: 3,    //默认的选中第几个图片
+                 parentClass:"plug-two",  //滚动的幻灯的插件
+                 currentBarClass:"cur",  //当前的slideBar加上的class
+                 barHasNum:false, //slideBar是否带有数字
+                 autoChange:true, //是否自动轮播
+                 showDescribe:true,//是否显示图片的描述信息
+                 display_next_and_prev:false,   //是否显示左右切换的按钮
+                 display_slide_bar:true,    //是否显示slidebar导航条
+                 display_page:false,  //是否显示页码   false  or  true
+                 callbackFunction:function(){
+                      console.log("此处可以填写实例化2的回调函数")
+                }
+             });
+
+             var imgPlug3 = new imgPlug({
+                 parentClass:"plug-three", //两张图片自动轮播的间隔时间
+                 display_next_and_prev:false
+             });
+            
+
+      </script>
+
+</body>
+</html>
+
